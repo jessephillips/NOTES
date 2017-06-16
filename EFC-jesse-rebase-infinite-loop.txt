@@ -1,0 +1,748 @@
+nothing to commit, working directory clean
+[energy-for-a-cause (master)]$ git checkout jesse/list-changes 
+Switched to branch 'jesse/list-changes'
+Your branch is ahead of 'origin/jesse/list-changes' by 30 commits.
+  (use "git push" to publish your local commits)
+[energy-for-a-cause (jesse/list-changes)]$ git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: Change zones and utility company views to bootstrap grid
+Applying: Fix mobile layout for Utility Companies page
+Applying: Oops, better fix for Utility Companies
+Applying: Fix "plans" styles on mobile
+Applying: Fix mobile styles and header on "service requests" page
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/service_requests/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/service_requests/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+Applying: Fix mobile styles on zones page and hide and show the zip codes
+Applying: update mobile view of zones page
+Applying: Updated mobile styles for plans page
+Applying: fix styles for Utility Companies page
+Applying: Update state filter on Supplier plans#index.
+Using index info to reconstruct a base tree...
+M	app/views/supplier/service_requests/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/service_requests/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/service_requests/index.html.haml
+Failed to merge in the changes.
+Patch failed at 0010 Update state filter on Supplier plans#index.
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((877dc47...)|REBASE)]$ git rebase --continue
+app/views/supplier/service_requests/index.html.haml: needs merge
+You must edit all merge conflicts and then
+mark them as resolved using git add
+[energy-for-a-cause ((877dc47...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   app/views/supplier/service_requests/index.html.haml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[energy-for-a-cause ((877dc47...)|REBASE)]$ git add . -p
+ignoring unmerged: app/views/supplier/service_requests/index.html.haml
+No changes.
+[energy-for-a-cause ((877dc47...)|REBASE)]$ git add .
+[energy-for-a-cause ((877dc47...)|REBASE)]$ git rebase --continue
+Applying: Update state filter on Supplier plans#index.
+Applying: Fix horizontal padding issues on mobile, font size for plans, button margins
+Applying: Change zones and utility company views to bootstrap grid
+Using index info to reconstruct a base tree...
+M	app/views/supplier/utility_companies/abbreviation_index.html.haml
+M	app/views/supplier/zones/index.html.haml
+<stdin>:102: trailing whitespace.
+      .col-sm-3 
+<stdin>:104: trailing whitespace.
+      .col-sm-6 
+warning: 2 lines add whitespace errors.
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/zones/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/zones/index.html.haml
+Auto-merging app/views/supplier/utility_companies/abbreviation_index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/utility_companies/abbreviation_index.html.haml
+Failed to merge in the changes.
+Patch failed at 0012 Change zones and utility company views to bootstrap grid
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((0fd7b27...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   app/views/supplier/utility_companies/abbreviation_index.html.haml
+	both modified:   app/views/supplier/zones/index.html.haml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[energy-for-a-cause ((0fd7b27...)|REBASE)]$ git add . -p
+ignoring unmerged: app/views/supplier/utility_companies/abbreviation_index.html.haml
+ignoring unmerged: app/views/supplier/zones/index.html.haml
+No changes.
+[energy-for-a-cause ((0fd7b27...)|REBASE)]$ git add .
+[energy-for-a-cause ((0fd7b27...)|REBASE)]$ git rebase --continue
+Applying: Change zones and utility company views to bootstrap grid
+Applying: Fix mobile layout for Utility Companies page
+Using index info to reconstruct a base tree...
+M	app/views/supplier/utility_companies/abbreviation_index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/utility_companies/abbreviation_index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/utility_companies/abbreviation_index.html.haml
+Failed to merge in the changes.
+Patch failed at 0013 Fix mobile layout for Utility Companies page
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((cb30f51...)|REBASE)]$ git add .
+[energy-for-a-cause ((cb30f51...)|REBASE)]$ git rebase --continue
+Applying: Fix mobile layout for Utility Companies page
+Applying: Oops, better fix for Utility Companies
+Using index info to reconstruct a base tree...
+M	app/views/supplier/utility_companies/abbreviation_index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/utility_companies/abbreviation_index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/utility_companies/abbreviation_index.html.haml
+Failed to merge in the changes.
+Patch failed at 0014 Oops, better fix for Utility Companies
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((c701786...)|REBASE)]$ git add .
+[energy-for-a-cause ((c701786...)|REBASE)]$ git rebase --continue
+Applying: Oops, better fix for Utility Companies
+Applying: Fix "plans" styles on mobile
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/plans/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/plans/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/plans/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+CONFLICT (content): Merge conflict in app/assets/stylesheets/styles.scss
+Failed to merge in the changes.
+Patch failed at 0015 Fix "plans" styles on mobile
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((c6dd8da...)|REBASE)]$ git add .
+[energy-for-a-cause ((c6dd8da...)|REBASE)]$ git rebase --continue
+Applying: Fix "plans" styles on mobile
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((c6dd8da...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (all conflicts fixed: run "git rebase --continue")
+
+nothing to commit, working directory clean
+[energy-for-a-cause ((c6dd8da...)|REBASE)]$ git rebase --continue
+Applying: Fix "plans" styles on mobile
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((c6dd8da...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   app/assets/stylesheets/styles.scss
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[energy-for-a-cause ((c6dd8da...)|REBASE)]$ git add .
+[energy-for-a-cause ((c6dd8da...)|REBASE)]$ git rebase --continue
+Applying: Fix "plans" styles on mobile
+Applying: Fix mobile styles and header on "service requests" page
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/service_requests/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/service_requests/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/service_requests/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+CONFLICT (content): Merge conflict in app/assets/stylesheets/styles.scss
+Failed to merge in the changes.
+Patch failed at 0016 Fix mobile styles and header on "service requests" page
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((4eb6f1c...)|REBASE)]$ git add .
+[energy-for-a-cause ((4eb6f1c...)|REBASE)]$ git rebase --continue
+Applying: Fix mobile styles and header on "service requests" page
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((4eb6f1c...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   app/assets/stylesheets/styles.scss
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[energy-for-a-cause ((4eb6f1c...)|REBASE)]$ git add .
+[energy-for-a-cause ((4eb6f1c...)|REBASE)]$ git rebase --continue
+Applying: Fix mobile styles and header on "service requests" page
+Applying: Fix mobile styles on zones page and hide and show the zip codes
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/zones/index.html.haml
+<stdin>:46: trailing whitespace.
+      .col-xs-4.col-sm-3 
+warning: 1 line adds whitespace errors.
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/zones/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/zones/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+CONFLICT (content): Merge conflict in app/assets/stylesheets/styles.scss
+Failed to merge in the changes.
+Patch failed at 0017 Fix mobile styles on zones page and hide and show the zip codes
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((b7dc76f...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   app/assets/stylesheets/styles.scss
+	both modified:   app/views/supplier/zones/index.html.haml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[energy-for-a-cause ((b7dc76f...)|REBASE)]$ git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+[energy-for-a-cause ((b7dc76f...)|REBASE)]$ git add .
+[energy-for-a-cause ((b7dc76f...)|REBASE)]$ git rebase --continue
+Applying: Fix mobile styles on zones page and hide and show the zip codes
+Applying: update mobile view of zones page
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/zones/index.html.haml
+<stdin>:28: trailing whitespace.
+      .col-xs-4.col-sm-3.hidden-xs 
+<stdin>:46: trailing whitespace.
+        
+warning: 2 lines add whitespace errors.
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/zones/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/zones/index.html.haml
+Failed to merge in the changes.
+Patch failed at 0018 update mobile view of zones page
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((86988a1...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   app/views/supplier/zones/index.html.haml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[energy-for-a-cause ((86988a1...)|REBASE)]$ git add .
+[energy-for-a-cause ((86988a1...)|REBASE)]$ git rebase --continue
+Applying: update mobile view of zones page
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((86988a1...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   app/assets/stylesheets/styles.scss
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[energy-for-a-cause ((86988a1...)|REBASE)]$ git add .
+[energy-for-a-cause ((86988a1...)|REBASE)]$ git rebase --continue
+Applying: update mobile view of zones page
+Applying: Updated mobile styles for plans page
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/plans/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/plans/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/plans/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+CONFLICT (content): Merge conflict in app/assets/stylesheets/styles.scss
+Failed to merge in the changes.
+Patch failed at 0019 Updated mobile styles for plans page
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((4ea8320...)|REBASE)]$ git add .
+[energy-for-a-cause ((4ea8320...)|REBASE)]$ git rebase --continue
+Applying: Updated mobile styles for plans page
+Applying: fix styles for Utility Companies page
+Using index info to reconstruct a base tree...
+M	app/views/supplier/utility_companies/abbreviation_index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/utility_companies/abbreviation_index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/utility_companies/abbreviation_index.html.haml
+Failed to merge in the changes.
+Patch failed at 0020 fix styles for Utility Companies page
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((3105b47...)|REBASE)]$ git add .
+[energy-for-a-cause ((3105b47...)|REBASE)]$ git rebase --continue
+Applying: fix styles for Utility Companies page
+Applying: Fix horizontal padding issues on mobile, font size for plans, button margins
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/plans/index.html.haml
+M	app/views/supplier/service_requests/index.html.haml
+M	app/views/supplier/utility_companies/abbreviation_index.html.haml
+M	app/views/supplier/zones/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/utility_companies/abbreviation_index.html.haml
+Auto-merging app/views/supplier/plans/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+Applying: fixed modal boxes for Zones and Plans
+Using index info to reconstruct a base tree...
+M	app/views/supplier/plans/index.html.haml
+M	app/views/supplier/zones/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/zones/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/zones/index.html.haml
+Auto-merging app/views/supplier/plans/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/plans/index.html.haml
+Failed to merge in the changes.
+Patch failed at 0022 fixed modal boxes for Zones and Plans
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((c940007...)|REBASE)]$ git add .
+[energy-for-a-cause ((c940007...)|REBASE)]$ git rebase --continue
+Applying: fixed modal boxes for Zones and Plans
+Applying: changing select to text input
+Using index info to reconstruct a base tree...
+M	app/views/supplier/plans/_form_fields.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/plans/_form_fields.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/plans/_form_fields.html.haml
+Failed to merge in the changes.
+Patch failed at 0023 changing select to text input
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((91e7bfa...)|REBASE)]$ git add .
+[energy-for-a-cause ((91e7bfa...)|REBASE)]$ git rebase --continue
+Applying: changing select to text input
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((91e7bfa...)|REBASE)]$ git add .
+[energy-for-a-cause ((91e7bfa...)|REBASE)]$ git rebase --continue
+Applying: changing select to text input
+Applying: form validation for the percent_renewable_energy field on plans page
+Using index info to reconstruct a base tree...
+M	app/models/plan.rb
+Falling back to patching base and 3-way merge...
+Auto-merging app/models/plan.rb
+CONFLICT (content): Merge conflict in app/models/plan.rb
+Failed to merge in the changes.
+Patch failed at 0024 form validation for the percent_renewable_energy field on plans page
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((5a54631...)|REBASE)]$ git add .
+[energy-for-a-cause ((5a54631...)|REBASE)]$ git rebase --continue
+Applying: form validation for the percent_renewable_energy field on plans page
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((5a54631...)|REBASE)]$ git add .
+[energy-for-a-cause ((5a54631...)|REBASE)]$ git rebase --continue
+Applying: form validation for the percent_renewable_energy field on plans page
+Applying: Fixed syntax uglies
+Using index info to reconstruct a base tree...
+M	app/views/supplier/plans/_form_fields.html.haml
+M	app/views/supplier/zones/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/zones/index.html.haml
+Auto-merging app/views/supplier/plans/_form_fields.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/plans/_form_fields.html.haml
+Failed to merge in the changes.
+Patch failed at 0025 Fixed syntax uglies
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((9f43821...)|REBASE)]$ git add .
+[energy-for-a-cause ((9f43821...)|REBASE)]$ git rebase --continue
+Applying: Fixed syntax uglies
+Applying: changed my mobile-padding-fix approach
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/plans/index.html.haml
+M	app/views/supplier/service_requests/index.html.haml
+M	app/views/supplier/zones/index.html.haml
+<stdin>:98: trailing whitespace.
+    .row  
+warning: 1 line adds whitespace errors.
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/zones/index.html.haml
+Auto-merging app/views/supplier/service_requests/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/service_requests/index.html.haml
+Auto-merging app/views/supplier/plans/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+Failed to merge in the changes.
+Patch failed at 0026 changed my mobile-padding-fix approach
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((8907e76...)|REBASE)]$ git add .
+[energy-for-a-cause ((8907e76...)|REBASE)]$ git rebase --continue
+Applying: changed my mobile-padding-fix approach
+Applying: oops, font-weight fix
+Applying: Change zones and utility company views to bootstrap grid
+Using index info to reconstruct a base tree...
+M	app/views/supplier/utility_companies/abbreviation_index.html.haml
+M	app/views/supplier/zones/index.html.haml
+<stdin>:102: trailing whitespace.
+      .col-sm-3 
+<stdin>:104: trailing whitespace.
+      .col-sm-6 
+warning: 2 lines add whitespace errors.
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/zones/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/zones/index.html.haml
+Auto-merging app/views/supplier/utility_companies/abbreviation_index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/utility_companies/abbreviation_index.html.haml
+Failed to merge in the changes.
+Patch failed at 0028 Change zones and utility company views to bootstrap grid
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((9b23e66...)|REBASE)]$ git add .
+[energy-for-a-cause ((9b23e66...)|REBASE)]$ git rebase --continue
+Applying: Change zones and utility company views to bootstrap grid
+Applying: Fix mobile layout for Utility Companies page
+Using index info to reconstruct a base tree...
+M	app/views/supplier/utility_companies/abbreviation_index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/utility_companies/abbreviation_index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/utility_companies/abbreviation_index.html.haml
+Failed to merge in the changes.
+Patch failed at 0029 Fix mobile layout for Utility Companies page
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((b667c20...)|REBASE)]$ git add .
+[energy-for-a-cause ((b667c20...)|REBASE)]$ git rebase --continue
+Applying: Fix mobile layout for Utility Companies page
+Applying: Oops, better fix for Utility Companies
+Using index info to reconstruct a base tree...
+M	app/views/supplier/utility_companies/abbreviation_index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/utility_companies/abbreviation_index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/utility_companies/abbreviation_index.html.haml
+Failed to merge in the changes.
+Patch failed at 0030 Oops, better fix for Utility Companies
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((849a77b...)|REBASE)]$ git add .
+[energy-for-a-cause ((849a77b...)|REBASE)]$ git rebase --continue
+Applying: Oops, better fix for Utility Companies
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((849a77b...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   app/assets/stylesheets/styles.scss
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[energy-for-a-cause ((849a77b...)|REBASE)]$ git add .
+[energy-for-a-cause ((849a77b...)|REBASE)]$ git rebase --continue
+Applying: Oops, better fix for Utility Companies
+Applying: Fix "plans" styles on mobile
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/plans/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/plans/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/plans/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+CONFLICT (content): Merge conflict in app/assets/stylesheets/styles.scss
+Failed to merge in the changes.
+Patch failed at 0031 Fix "plans" styles on mobile
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((5a55366...)|REBASE)]$ git status
+rebase in progress; onto ea2b60c
+You are currently rebasing branch 'jesse/list-changes' on 'ea2b60c'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   app/assets/stylesheets/styles.scss
+	both modified:   app/views/supplier/plans/index.html.haml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[energy-for-a-cause ((5a55366...)|REBASE)]$ git add .
+[energy-for-a-cause ((5a55366...)|REBASE)]$ git rebase --continue
+Applying: Fix "plans" styles on mobile
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((5a55366...)|REBASE)]$ git add .
+[energy-for-a-cause ((5a55366...)|REBASE)]$ git rebase --continue
+Applying: Fix "plans" styles on mobile
+Applying: Fix mobile styles and header on "service requests" page
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/service_requests/index.html.haml
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/service_requests/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/service_requests/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+CONFLICT (content): Merge conflict in app/assets/stylesheets/styles.scss
+Failed to merge in the changes.
+Patch failed at 0032 Fix mobile styles and header on "service requests" page
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((8d1010e...)|REBASE)]$ git add .
+[energy-for-a-cause ((8d1010e...)|REBASE)]$ git rebase --continue
+Applying: Fix mobile styles and header on "service requests" page
+Applying: Fix mobile styles on zones page and hide and show the zip codes
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/zones/index.html.haml
+<stdin>:46: trailing whitespace.
+      .col-xs-4.col-sm-3 
+warning: 1 line adds whitespace errors.
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/zones/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/zones/index.html.haml
+Auto-merging app/assets/stylesheets/styles.scss
+CONFLICT (content): Merge conflict in app/assets/stylesheets/styles.scss
+Failed to merge in the changes.
+Patch failed at 0033 Fix mobile styles on zones page and hide and show the zip codes
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((cce3a67...)|REBASE)]$ git add .
+[energy-for-a-cause ((cce3a67...)|REBASE)]$ git rebase --continue
+Applying: Fix mobile styles on zones page and hide and show the zip codes
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((cce3a67...)|REBASE)]$ git add .
+[energy-for-a-cause ((cce3a67...)|REBASE)]$ git rebase --continue
+Applying: Fix mobile styles on zones page and hide and show the zip codes
+Applying: update mobile view of zones page
+Using index info to reconstruct a base tree...
+M	app/assets/stylesheets/styles.scss
+M	app/views/supplier/zones/index.html.haml
+<stdin>:28: trailing whitespace.
+      .col-xs-4.col-sm-3.hidden-xs 
+<stdin>:46: trailing whitespace.
+        
+warning: 2 lines add whitespace errors.
+Falling back to patching base and 3-way merge...
+Auto-merging app/views/supplier/zones/index.html.haml
+CONFLICT (content): Merge conflict in app/views/supplier/zones/index.html.haml
+Failed to merge in the changes.
+Patch failed at 0034 update mobile view of zones page
+The copy of the patch that failed is found in:
+   /Users/jesus/Documents/SideWork/Polar-Notion/energy-for-a-cause/.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((45f0c30...)|REBASE)]$ git add .
+[energy-for-a-cause ((45f0c30...)|REBASE)]$ git rebase --continue
+Applying: update mobile view of zones page
+No changes - did you forget to use 'git add'?
+If there is nothing left to stage, chances are that something else
+already introduced the same changes; you might want to skip this patch.
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[energy-for-a-cause ((45f0c30...)|REBASE)]$ 

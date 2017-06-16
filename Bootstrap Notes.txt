@@ -1,0 +1,59 @@
+Bootstrap Notes:
+------------------
+
+Bootstrap Modals:
+1. Trigger
+- use a link or a button
+- must have: 
+-- data-toggle="modal"
+-- data-target="#myModal" - the ID of the modal
+
+2. The Modal Parent
+- the Modal parent div must have 
+-- an ID that matches data-target from the trigger.
+-- class .modal
+
+- inside the parent div, put a wrapper div.modal-dialog (sets width & margin)
+
+
+3. Model Content
+- the modal content should be in a div.modal-content (not sure if this is absolutely necessary)
+
+4. To close the Modal
+- make a button with data-dismiss="modal"
+- optionally add .close for styles.
+
+Options:
+- optional div classes to use:
+-- .modal-header
+--- .modal-title
+-- .modal-body
+-- .modal-footer
+
+Sample minimal pseudo code:
+---
+a data-toggle="modal" data-target="#myModal"
+
+div #myModal .modal
+	div .modal-dialog
+		div .modal-content
+			button .close data-dismiss="modal"
+			... content ...
+---
+
+A Better Example, which includes optional stuff that probably should just be used instead of being optional...
+---
+a data-toggle="modal" data-target="#myModal"
+
+#myModal .modal
+	.modal-dialog
+		.modal-content
+			.modal-header
+				h4 .modal-title
+				button .close data-dismiss="modal"
+					&times;
+			.modal-body
+				... content ...
+			.modal-footer
+				button .close data-dismiss="modal"
+

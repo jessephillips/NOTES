@@ -1,0 +1,102 @@
+== Conventions for Git branching & commits ==
+
+- very long descriptive branch names
+- always branch from master, not other branches
+- every branch should accomplish ONE THING. Resist the urge to fix a bunch of other shit as you go. Go back and make another branch to fix stuff.
+-- this keeps things very organized
+-- this gives you a sense of accomplishment
+-- less overlap, less opportunity to get confused
+
+- with commits: a fully functioning feature with a message that is a complete sentence with punctuation. Use "present tense."
+-- a branch should have 3-5 commits on the high end
+-- write commit messages before you write the code, prevents your pull request from having 80 commit messages.
+-- scrolling through dozens of commit messages is annoying on github.
+-- (rebasing is a HUGE pain with lots of commits)
+-- AT NO POINT should the code be committed that does not work. use "WIP:" which means "work in progress."
+---- rename the commit message when you fix the WIP.
+
+command for tests: rspec
+
+===============
+git log (look at all recent commits)
+type q to quit the log.
+command-k (clear everything above cursor)
+git rebase master
+
+How to delete your local branch on git and pull the one from origin:
+===============
+1. Delete your local branch: git branch -d local_branch
+2. Fetch the latest remote branch: git fetch origin remote_branch
+3. Rebuild the local branch based on the remote one: git checkout -b local_branch origin/remote_branch
+
+
+How to remove files from staging:
+================
+  git reset foo-file-name
+
+OR
+
+  git rm --cached foo-file-name
+
+
+To See what's Been Added to staging, before you commit:
+===============
+  git diff --cached
+
+Shows the differences between what you've staged and what you're about to update.
+
+
+Commit:
+===============
+use this command to simultaneously add & commit files:
+  git commit -a -m "message"
+
+Undo the last commit:
+  git reset --soft HEAD^
+
+As you may recall, the "reset" command is the opposite of the "add" command. This time, "reset" tells Git to undo the commit. What follows "reset" is the "--soft" option. The "--soft" option means that the commit is canceled and moved before HEAD. You can now add another file to the staging area and commit, or you can amend files and commit them.
+
+To understand what that "HEAD" thing represents, recall that we work in branches. Currently we're in the master branch, and HEAD points to this master branch. When we switch to a different branch later, HEAD will point to that different branch. HEAD is just a pointer to a branch:
+
+Moving HEAD points to branches
+What you see in the image is that each dot represents a separate commit, and the latest commit is at the top of the branch (HEAD). In the command "git reset --soft HEAD^" the last character "^" represents the last commit. We can read "git reset --soft HEAD^" as "Undo the last commit in the current branch and move HEAD back by one commit."
+
+-- OR you can amend the commit:
+  git commit --amend -m "message"
+
+
+GIT PUSH:
+===============
+git push -u origin master
+
+The -u option sets this as the default for git push next time.
+
+
+Revert to a previous commit:
+===============
+
+$ git log -5 (show last 5 commits, or how ever many you need)
+
+find the commit hash that you want to revert to. Copy the hash code.
+
+$ git reset --hard **git hash number here, like x$5as@239fd.....
+
+
+Merging Pull Requests:
+===============
+From Ben & Matt:
+
+$ git checkout master
+$ git pull
+$ git checkout branch-name
+$ git rebase master
+$ rspec
+Look at the view in browser
+* If Merge conflict is in schema run rake db:migrate *
+$ git checkout master
+$ git merge branch-name
+/// If there’s conflicts:
+$ git merge —abort
+$ git reset head —hard (most recent she on GitHub)
+///
+$ git push

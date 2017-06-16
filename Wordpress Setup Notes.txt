@@ -1,0 +1,153 @@
+Wordpress Setup Notes:
+
+1. Followed this Tutorial: https://skillcrush.com/2015/04/14/install-wordpress-mac/
+	NOTES:
+	- when I installed MAMP, I had to first uninstal a previous version. I just threw the old MAMP & MAMP PRO folders in the trash (note: they are in the applications folder)
+	- Also, when I started MAMP, MYSQL wouldn't run. So, I googled and ended up doing two things. I don't know which one worked:
+	  1. I deleted ib_logfile0 & ib_logfile1 (rather, I moved them) from MAMP/db/mysql56/ - this by itself didn't work, so then I closed MAMP again and ...
+	  2. Opened the activity monitor and killed the process named mysql* (I forget the exact name, but there was only one process, and it started with 'mysql')
+	     THIS WORKED! PRAISE JESUS! After deleting that process, I reopened MAMP and it worked, it opened the Mamp start page. Then I just continued following the above tutorial.
+	  3. UPDATE: The next day, I had the same problem with starting MySql. So, I deleted the ib_logfileN (where N = 0, 1, etc..). This worked. Here's a blog post on the topic: https://juanfra.me/2013/01/mysql-not-starting-mamp-fix/
+
+2. Setup Git in the project directory:
+  - When I unzipped the wordpress download, I called it "newstory"
+  - Inside the newstory directory, run: git init
+  - I got a special .gitignore file from Morgan which works perfect for wordpress. I copied that into newstory.
+  - I went to github and created a repository named newstory (NOTE: do not create the README file or gitignore or anything. I accidentally did this, and it was slightly annoying, I followed this tutorial: https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+  - Following the above tutorial leads you through the initial commit and how to push from the terminal. Note: I used the ssh repository URL for my remote. Don't be alarmed by the fact that it doesn't start with https! My add remote command (which worked) was this: git remote add origin git@github.com:PolarNotion/newstory.git
+
+3. Create the base theme:
+	- Go to underscores.me
+	- Put in the name of your theme and click generate.
+	- This generates your base theme. Unzip this file and put the resulting directory in your newstory/wp-content/themes/ directory.
+
+4. Add the Advanced Custom Fields plugin:
+	- Get a copy of the Advanced Custom Fields Plugin folder and copy it into your newstory/wp-content/plugins/ directory.
+	
+	- Create Modules Setup
+		- modify content.php & content-page.php (covered below)
+		- in Field Groups, create a Page Options field group - settings are all default, I think.
+		- in Page Options, create a "Modules" field with Field Type: "Flexible Content". Then "Button Label" should be "Add Module"
+		- in the Modules field, under Layout, just create the modules there. To add another module, go under Layout and choose: Add New (this is not at all intuitive and was hard to figure out)
+
+	- Create files for Module
+		1. Modify /modules/modules.php to add the new module you created
+		2. create a FooMyModule.php file in the modules directory (name should match your module name, of course)
+
+	- If you want to load "Advanced Custom Fields" (read: modules & custom post type fields) from another wordpress instance. It's easy. From Admin go Custom Fields > Tools > Export Field Groups. Click Toggle All & export the file. Then, just import that file on your new wordpress instance.
+
+5. Modifying Wordpress Base files to work like Glisson:
+	_Remove sidebar.php_
+		I had to remove the references to sidebar.php. I might have been able to comment out the entire file, but I did it the way it seemed to be done in Glisson, which is:
+		- remove get_sidebar(); from page.php, single.php, index.php. It's at the bottom of the file.
+
+	_Modify Header.php & Footer.php_
+		- This may be obvious, I had to carefully edit header.php and footer.php to get rid of unnecessary stuff and add the new stuff. I don't reallllly know what I'm doing, so I used Glisson as a guide, and tried to keep the things in the base file that Glisson kept, while adding the new stuff.
+
+	_Modify template-parts/content.php & template-parts/content-page.php_
+		- I had to remove some code and add the module finding code. Again, I used Glisson as a guide. These files could probably be copied from Glisson (actually, same with the page.php, single.php, index.php above).
+
+	_Modify functions.php to add an Options Page_
+		- with ACF, we need to add this code to the bottom of functions.php to create a Theme Options page (it's called Options at bottom of WP admin sidebar)
+		_ the code:
+		if( function_exists('acf_add_options_page') ) {
+	
+			acf_add_options_page();
+	
+		}
+
+	_Add the Modules.php file!
+	 - This is a file that Morgan setup that uses the code on template-parts/content-page.php to get the module php files. The entire file is like this (NOTE: call-to-action & header are modules I created):
+	 <?php
+	  if ( get_row_layout() == 'call-to-action' ):
+	    
+	    include('call-to-action.php');
+
+	  elseif ( get_row_layout() == 'header' ):
+	    
+	    include('header.php');
+
+	  endif;
+
+	  ?>
+
+		- To add your own modules, you need to add an elseif statement in this file. The querry is the module name (pay attention to dashes & underscores, etc.) and the include is your module php file (be consistent with your file & module names)  
+
+6. Using Theme Images
+	- It was tricky to use image assets that the newstory website was using. You have to use a wordpress function to get the right URL. It is:
+	- get_template_directory_uri(); 
+	- You just echo this funtion in front of existing paths. In my case: <?php echo get_template_directory_uri(); ?>/assets/img/about/foo.jpg
+	- And, actually, I decieded to just use uploaded images, so instead, you can simply use the image URL produced by ACF image variables.
+
+7. Getting wordpress to use your custom js. Don't put them in the header or footer, but you have to add some code to functions.php to load your scripts (ht: https://developer.wordpress.org/themes/basics/including-css-javascript/)
+	- wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array ( 'jquery' ), 1.1, true);
+
+8. Creating Modules:
+	- Create the .php file, and use get_sub_field() to get your custom field values from the page.
+	- add a line in your modules.php file
+	- add the module and custom fields on the Custom Fields admin area. (Probably under Page Options > Modules, depending on how you've set it up)
+
+___9. Creating Custom Post Types: WHEW! THIS WAS CHALLENGING!___
+
+		1. You add some code to functions.php to create the custom post type and register it with wordpress. Here's my sample code below. Here's a good blog post for help with the first part: https://www.elegantthemes.com/blog/tips-tricks/creating-custom-post-types-in-wordpress
+		When you do that, you'll have a "Team Members" link in the admin nav bar to create Team Members! Awesome!
+
+		Code:
+		// Set up Custom Post Types
+
+		function custom_post_team_members() {
+		    $labels = array(
+		    	'name' 					=> _x( 'Team Members', 'post type general name' ),
+		    	'singular_name' => _x( 'Team Member', 'post type singular name' ),
+		    	'add_new' 			=> _x( 'Add New', 'book'),
+		    	'add_new_item'	=> __( 'Add New Team Member' ),
+		    	'edit_item'			=> __( 'Edit Team Member' ),
+		    	'new_item'			=> __( 'New Team Member' ),
+		    	'all_items'			=> __( 'All Team Members' ),
+		    	'view_item'			=> __( 'View Team Member' ),
+		    	'search_items'	=> __( 'Search Team Members' ),
+		    	'menu_name'			=> 'Team Members'
+		    );
+		    $args = array (
+		    	'labels'			=> $labels,
+		    	'descriptoin'	=> 'The New Story Team Members',
+		    	'public'			=> true,
+		    	'menu_position' => 5,
+		    	'supports'		=> array ('title' ),
+		    	'has_archive' => true
+		    );
+		  register_post_type( 'team_members', $args );
+		}
+		add_action( 'init', 'custom_post_team_members' );
+
+
+
+		2. Add custom fields to that post type using ACF
+			- Go to Custom Fields
+			- Create a Field Group called "Team Members" (in this case, because my custom post type (CPT) is team_members)
+			- Create custom fields in the normal way
+			- This is awesome. Now when you create team members, you'll have their custom fields there to enter data.
+
+		3. Create the WP files to display Team Members.
+			- IMPORTANT! IMPORTANT! in your WP Admin Settings > Permalinks : set Permalinks to "Post name" - when it was set at default ("Day and name" ?) this was causing problems.
+			
+			- Actually, you might not have to change Permalink settings, I think it might be that changing this setting actually just refreshed the admin pages for me. If you log-out and log-in, I think it will refresh the admin setup and then the single-X.php file will work, but I'm getting ahead of myself...
+			
+			- copy your WP single.php file and rename it single-{post_type}.php where "post_type" is the string name you used in functions.php register_post_type( 'xxxxx', $args ); In my case it is "team_members" - yours might be 'special-post-type' or 'products' - make sure your new single-X.php matches the post type you registered.
+			
+			- Now, when you create Team Members and click on the "view" button from the "All Team Members" page, it will show single-team_members.php. This is the file you want to edit to include your custom code.
+
+		4. Creating a Module to display all your posts of a given post type:
+			- create a module as always
+			- use this code to loop through your custom post types:
+				$args = array( 'post_type' => 'product', 'posts_per_page' => 10 );
+				$loop = new WP_Query( $args );
+				while ( $loop->have_posts() ) : $loop->the_post();
+				  the_title();
+				  echo '<div class="entry-content">';
+				  the_content();
+				  echo '</div>';
+				endwhile;
+
+			- TRICKY NOTE! I was trying to do this loop in different modules on the same page! Which didn't work. So I had to add this line of code after the loop: wp_reset_postdata(); I just put it right after the endwhile;. I tried rewind_posts() first, but that didn't work. Here's a post about it: https://wordpress.stackexchange.com/questions/240744/querying-custom-post-type-twice-on-same-page
+
